@@ -1,9 +1,4 @@
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
     <title>Getting Started Extension's Popup</title>
@@ -17,27 +12,36 @@
         font-size: 15px;
       }
 
+      h2 {
+        font-size: 13px;
+      }
+
       #container {
-        align-items: center;
+        align-items: flex-start;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
       }
     </style>
-
-    <script src="popup.js"></script>
   </head>
 
   <body>
-    <h1>Background Color Changer</h1>
-    <div id="container">
-      <span>Choose a color</span>
-      <select id="dropdown">
-        <option selected disabled hidden value=''></option>
-        <option value="white">White</option>
-        <option value="pink">Pink</option>
-        <option value="green">Green</option>
-        <option value="yellow">Yellow</option>
+    <h1>Settings</h1>
+    <div id="container">      
+      <h2>Maximum Tabs:</h2>
+      <select id="max_tabs_dropdown">
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20" selected>20</option>
+        <option value="25">25</option>
+        <option value="30">30</option>
+        <option value="35">35</option>
+        <option value="40">40</option>
+        <option value="45">45</option>
+        <option value="50">50</option>
       </select>
     </div>
+
+    <script src="popup.js"></script>
   </body>
 </html>

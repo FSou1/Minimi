@@ -1,7 +1,11 @@
 (function() {
     'use strict';
 
-    var maxTabsCount = 10;
+    var retrieve = function(key, cb) {
+        chrome.storage.sync.get(key, function (items) {
+            cb(chrome.runtime.lastError ? null : items[key]);
+        });
+    };
 
     var handleTabEvent = function(tab) {
         if(!tab || !tab.id) return;
@@ -10,10 +14,13 @@
             windowType: 'normal',
             pinned: false
         }, function(tabs) {
-            if(tabs.length > maxTabsCount) {
-                alert('Tabs limit is exceed.\r\nYou can not open more than ' + maxTabsCount + ' tabs.\r\nNow opened: ' + tabs.length);
-                chrome.tabs.remove(tab.id);
-            }
+            retrieve('max_tabs', function(value) {
+                var maxTabsCount = value || 20;
+                if(tabs.length > maxTabsCount) {
+                    alert('Tabs limit is exceed.\r\nYou can not open more than ' + maxTabsCount + ' tabs.\r\nNow opened: ' + tabs.length);
+                    chrome.tabs.remove(tab.id);
+                }
+            });
         });
     };
     
