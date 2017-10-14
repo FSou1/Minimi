@@ -21,7 +21,8 @@
   "content_scripts": [
     {
       "matches": ["http://*.linkedin.com/*", "https://*.linkedin.com/*"],
-      "js": ["clean-linkedin.js"]
+      "js": ["linkedin.js"],
+      "css": ["linkedin.css"]
     }
   ],
 

@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    var maxTabsCount = 25;
+    var maxTabsCount = 10;
 
     var handleTabEvent = function(tab) {
         if(!tab || !tab.id) return;
