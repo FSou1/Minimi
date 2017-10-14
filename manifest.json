@@ -8,6 +8,8 @@
   "permissions": [
     "http://www.linkedin.com",
     "https://www.linkedin.com",
+    "http://www.facebook.com",
+    "https://www.facebook.com",
     "activeTab",
     "storage"
   ],
@@ -23,6 +25,11 @@
       "matches": ["http://*.linkedin.com/*", "https://*.linkedin.com/*"],
       "js": ["linkedin.js"],
       "css": ["linkedin.css"]
+    },
+    {
+      "matches": ["http://*.facebook.com/*", "https://*.facebook.com/*"],
+      "js": ["facebook.js"],
+      "css": ["facebook.css"]
     }
   ],
 
