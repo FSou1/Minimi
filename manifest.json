@@ -1,8 +1,9 @@
+// author: FSou1 (my.fsou1@gmail.com)
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension allows the user to change the background color of the current page.",
+  "name": "Minimi",
+  "description": "Minimize distractions & keep focus on the things that matter to you by preventing multi-tasking and mindless feed-scrolling.\r\nA lightweight chrome browser extension that Limits the number of open tabs & removes the feed from Facebook & LinkedIn.",
   "version": "1.0",
   
   "permissions": [
@@ -32,6 +33,10 @@
       "css": ["facebook.css"]
     }
   ],
+
+  "icons": {
+    "128": "icon.png"
+  },
 
   "browser_action": {
     "default_icon": "icon.png",

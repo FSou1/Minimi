@@ -1,3 +1,4 @@
+// author: FSou1 (my.fsou1@gmail.com)
 (function() {
     'use strict';
 
@@ -15,7 +16,7 @@
             pinned: false
         }, function(tabs) {
             retrieve('max_tabs', function(value) {
-                var maxTabsCount = value || 20;
+                var maxTabsCount = value || 7;
                 if(tabs.length > maxTabsCount) {
                     alert('Tabs limit is exceed.\r\nYou can not open more than ' + maxTabsCount + ' tabs.\r\nNow opened: ' + tabs.length);
                     chrome.tabs.remove(tab.id);

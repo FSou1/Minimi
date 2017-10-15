@@ -1,3 +1,4 @@
+// author: FSou1 (my.fsou1@gmail.com)
 (function() {
   'use strict';
 
