@@ -15,12 +15,15 @@
             windowType: 'normal',
             pinned: false
         }, function(tabs) {
-            retrieve('max_tabs', function(value) {
-                var maxTabsCount = value || 7;
-                if(tabs.length > maxTabsCount) {
-                    alert('Tabs limit is exceed.\r\nYou can not open more than ' + maxTabsCount + ' tabs.\r\nNow opened: ' + tabs.length);
-                    chrome.tabs.remove(tab.id);
-                }
+            retrieve('disable_until_utc', function(disableUntilUtcValue){
+                if(new Date() < disableUntilUtcValue) return;
+                retrieve('max_tabs', function(maxTabsValue) {
+                    var maxTabsCount = maxTabsValue || 7;                
+                    if(tabs.length > maxTabsCount) {
+                        alert('Tabs limit is exceed.\r\nYou can not open more than ' + maxTabsCount + ' tabs.\r\nNow opened: ' + tabs.length);
+                        chrome.tabs.remove(tab.id);
+                    }
+                });            
             });
         });
     };
